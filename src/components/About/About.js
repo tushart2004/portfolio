@@ -1,3 +1,4 @@
+
 const About = () => {
   const technicalSkills = [
     { name: "Node.js", level: 90, icon: "🟢" },

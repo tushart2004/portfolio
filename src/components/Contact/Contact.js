@@ -1,5 +1,6 @@
 import { Mail, Github, Linkedin } from "lucide-react";
 
+
 const Contact = () => {
   return (
     <section id="contact" className="section">

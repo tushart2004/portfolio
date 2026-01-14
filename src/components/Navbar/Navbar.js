@@ -7,8 +7,7 @@ const Navbar = ({
   scrollToSection,
   darkMode,
   setDarkMode,
-  scrolled,
-}) => {
+  scrolled,}) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Rocket, Sparkles, CircleDashed } from "lucide-react";
 
+
 const Loader = ({ darkMode, onFinish }) => {
   const [loaderProgress, setLoaderProgress] = useState(0);
   const [loadingText, setLoadingText] = useState("Initializing Portfolio...");

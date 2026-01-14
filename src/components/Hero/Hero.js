@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Download } from "lucide-react";
-import heroImage from "./hero1.jpg";
-import Resume from "./Tushar_Resume.pdf";
+import heroImage from "../../Assets/images/hero1.jpg";
+import Resume from "./Tushar_Resume.pdf"
 
 const Hero = ({ scrollToSection }) => {
   const [currentSlide, setCurrentSlide] = useState(0);

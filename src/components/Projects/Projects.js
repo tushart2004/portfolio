@@ -1,44 +1,18 @@
 import { ExternalLink } from "lucide-react";
-import Image1 from "./project1.jpg"; 
+import Image1 from "../../Assets/images/Project1.jpg"; 
 
 const Projects = () => {
   const projects = [
     {
-      title: "E-Commerce Platform",
+      title: "Grocer Guru E-Commerce Platform",
       description:
-        "A full-stack e-commerce solution with real-time inventory management and payment integration.",
-      tech: ["React", "Node.js", "MongoDB", "Stripe"],
+        "A full-stack e-commerce solution with real-time inventory management and payment integration. It has a fully enabled admin panel for managing products, orders, and users.",
+      tech: ["React", "Node.js", "MongoDB","Express.js"],
       image:
         Image1,
-      link: "#",
+      link: "https://full-stack-ecommerce-gkwx.vercel.app/",
     },
-    {
-      title: "Social Media Dashboard",
-      description:
-        "Analytics dashboard for tracking social media metrics across multiple platforms with beautiful visualizations.",
-      tech: ["React", "D3.js", "Firebase", "Tailwind"],
-      image:
-        "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop",
-      link: "#",
-    },
-    {
-      title: "Task Management App",
-      description:
-        "Collaborative task management tool with real-time updates and team communication features.",
-      tech: ["React", "WebSocket", "PostgreSQL", "Express"],
-      image:
-        "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=400&fit=crop",
-      link: "#",
-    },
-    {
-      title: "AI Content Generator",
-      description:
-        "AI-powered content creation tool that helps users generate creative content using machine learning.",
-      tech: ["React", "Python", "TensorFlow", "FastAPI"],
-      image:
-        "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&h=400&fit=crop",
-      link: "#",
-    },
+    
   ];
 
   return (
