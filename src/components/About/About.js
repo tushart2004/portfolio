@@ -1,12 +1,12 @@
 
 const About = () => {
   const technicalSkills = [
-    { name: "Node.js", level: 90, icon: "🟢" },
-    { name: "HTML/CSS/Tailwind", level: 100, icon: "💻" },
-    { name: "Python", level: 80, icon: "🐍" },
-    { name: "Java", level: 80, icon: "☕" },
-    { name: "React", level: 95, icon: "⚛️" },
-    { name: "JavaScript", level: 90, icon: "🟨" },
+    { name: "Node.js", level: 90, icon: "🚀", category: "Backend" },
+    { name: "HTML/CSS/Tailwind", level: 100, icon: "🎨", category: "Frontend" },
+    { name: "Python", level: 80, icon: "🐍", category: "Programming" },
+    { name: "Java", level: 80, icon: "☕", category: "Programming" },
+    { name: "React", level: 95, icon: "⚛️", category: "Frontend" },
+    { name: "JavaScript", level: 90, icon: "💛", category: "Programming" },
   ];
 
   return (
