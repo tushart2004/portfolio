@@ -1,9 +1,8 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import Loader from "./components/Loader/Loader";
 import Navbar from "./components/Navbar/Navbar";
 import Hero from "./components/Hero/Hero";
 import About from "./components/About/About";
-import Experience from "./components/Experience/Experience";
 import Projects from "./components/Projects/Projects";
 import Contact from "./components/Contact/Contact";
 import Footer from "./components/Footer/Footer";
@@ -18,13 +17,13 @@ function App() {
   const [activeSection, setActiveSection] = useState("home");
   const [scrolled, setScrolled] = useState(false);
 
-  const navItems = [
+  const navItems = useMemo(() => [
     { id: "home", label: "Home" },
     { id: "about", label: "About & Skills" },
    // { id: "experience", label: "Experience" },
     { id: "projects", label: "Projects" },
     { id: "contact", label: "Contact" },
-  ];
+  ], []);
 
   // Scroll logic (UNCHANGED)
   useEffect(() => {
