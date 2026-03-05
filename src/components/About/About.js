@@ -1,12 +1,35 @@
 
 const About = () => {
   const technicalSkills = [
+    // Frontend Technologies
+    { name: "React", level: 95, icon: "⚛️", category: "Frontend" },
+    { name: "JavaScript", level: 90, icon: "💛", category: "Frontend" },
+    { name: "HTML/CSS", level: 100, icon: "🎨", category: "Frontend" },
+    { name: "Tailwind CSS", level: 85, icon: "🎨", category: "Frontend" },
+    
+    // Backend Technologies
     { name: "Node.js", level: 90, icon: "🚀", category: "Backend" },
-    { name: "HTML/CSS/Tailwind", level: 100, icon: "🎨", category: "Frontend" },
+    { name: "Express.js", level: 85, icon: "🛠️", category: "Backend" },
+    { name: "MongoDB", level: 80, icon: "🍃", category: "Database" },
+    
+    // Programming Languages
     { name: "Python", level: 80, icon: "🐍", category: "Programming" },
     { name: "Java", level: 80, icon: "☕", category: "Programming" },
-    { name: "React", level: 95, icon: "⚛️", category: "Frontend" },
-    { name: "JavaScript", level: 90, icon: "💛", category: "Programming" },
+    { name: "C++", level: 75, icon: "⚡", category: "Programming" },
+    
+    // Tools & Others
+    { name: "Git/GitHub", level: 85, icon: "📚", category: "Tools" },
+    { name: "VS Code", level: 90, icon: "💻", category: "Tools" },
+  ];
+
+  const education = [
+    {
+      degree: "M",
+      field: "Computer Science Engineering", // Update with your actual field
+      institution: "Your University Name", // Update with your actual university
+      year: "2021-2025", // Update with your actual years
+      grade: "CGPA: X.X/10" // Update with your actual grade
+    }
   ];
 
   return (
