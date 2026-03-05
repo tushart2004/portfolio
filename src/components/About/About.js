@@ -1,3 +1,4 @@
+import React from 'react';
 
 const About = () => {
   const technicalSkills = [
@@ -20,16 +21,6 @@ const About = () => {
     // Tools & Others
     { name: "Git/GitHub", level: 85, icon: "📚", category: "Tools" },
     { name: "VS Code", level: 90, icon: "💻", category: "Tools" },
-  ];
-
-  const education = [
-    {
-      degree: "M",
-      field: "Computer Science Engineering", // Update with your actual field
-      institution: "Your University Name", // Update with your actual university
-      year: "2021-2025", // Update with your actual years
-      grade: "CGPA: X.X/10" // Update with your actual grade
-    }
   ];
 
   return (
