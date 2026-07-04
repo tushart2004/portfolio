@@ -80,6 +80,7 @@ const Navbar = ({
           <motion.button
             onClick={() => setDarkMode(!darkMode)}
             className="theme-toggle"
+            aria-label={darkMode ? "Switch to light mode" : "Switch to dark mode"}
             whileHover={{ scale: 1.1, rotate: 15 }}
             whileTap={{ scale: 0.9 }}
             transition={{ duration: 0.2 }}
@@ -113,6 +114,8 @@ const Navbar = ({
           <motion.button
             className="mobile-menu-btn"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-label={isMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+            aria-expanded={isMenuOpen}
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
           >
