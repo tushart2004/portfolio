@@ -1,79 +1,86 @@
-import React from 'react';
-import { useEffect, useState } from "react";
-import { Rocket, Sparkles, CircleDashed } from "lucide-react";
-
+import { useEffect, useMemo, useState } from "react";
+import { Braces, Code2, Layers3, Sparkles } from "lucide-react";
 
 const Loader = ({ darkMode, onFinish }) => {
-  const [loaderProgress, setLoaderProgress] = useState(0);
-  const [loadingText, setLoadingText] = useState("Initializing Portfolio...");
+  const [step, setStep] = useState(0);
+
+  const loadingSteps = useMemo(
+    () => [
+      "Designing interface",
+      "Arranging components",
+      "Polishing interactions",
+      "Opening portfolio",
+    ],
+    []
+  );
 
   useEffect(() => {
-    const progressInterval = setInterval(() => {
-      setLoaderProgress((prev) => {
-        if (prev >= 100) {
-          clearInterval(progressInterval);
-          setTimeout(() => {
-            onFinish();
-          }, 500);
-          return 100;
-        }
+    const stepTimer = setInterval(() => {
+      setStep((currentStep) => Math.min(currentStep + 1, loadingSteps.length - 1));
+    }, 650);
 
-        const nextProgress = prev + 1;
-        if (nextProgress === 20) setLoadingText("Loading Modules...");
-  
-        if (nextProgress === 90) setLoadingText("Ready for Launch...");
+    const finishTimer = setTimeout(() => {
+      onFinish();
+    }, 2800);
 
-        return nextProgress;
-      });
-    }, 20);
-
-    return () => clearInterval(progressInterval);
-  }, [onFinish]);
+    return () => {
+      clearInterval(stepTimer);
+      clearTimeout(finishTimer);
+    };
+  }, [loadingSteps.length, onFinish]);
 
   return (
     <div className={`loader-container ${darkMode ? "dark" : "light"}`}>
-      <div className="loader-content">
-        <div className="logo-loader">
-          <div style={{
-            position: "absolute",
-            top: "50%",
-            left: "50%",
-            transform: "translate(-50%, -50%)",
-            zIndex: 0
-          }}>
-            <CircleDashed
-              size={120}
-              className="spin-slow"
-              color={darkMode ? "#4ade80" : "#16a34a"}
-              style={{ opacity: 0.3 }}
-            />
+      <div className="loader-content loader-redesign">
+        <div className="loader-stage" aria-hidden="true">
+          <div className="loader-orbit loader-orbit-one">
+            <span />
           </div>
-          <Rocket className="rocket-icon" size={64} style={{ position: "relative", zIndex: 1 }} />
-          <div className="sparkles">
-            <Sparkles className="sparkle sparkle-1" size={24} />
-            <Sparkles className="sparkle sparkle-2" size={20} />
-            <Sparkles className="sparkle sparkle-3" size={18} />
+          <div className="loader-orbit loader-orbit-two">
+            <span />
+          </div>
+          <div className="loader-orbit loader-orbit-three">
+            <span />
+          </div>
+
+          <div className="loader-core">
+            <div className="loader-core-glass">
+              <Code2 size={42} />
+            </div>
+          </div>
+
+          <div className="loader-floating-card loader-card-one">
+            <Braces size={18} />
+            <span>React</span>
+          </div>
+          <div className="loader-floating-card loader-card-two">
+            <Layers3 size={18} />
+            <span>UI</span>
+          </div>
+          <div className="loader-floating-card loader-card-three">
+            <Sparkles size={18} />
+            <span>MERN</span>
           </div>
         </div>
 
-        <h2 className="loader-text">{loadingText}</h2>
-
-        <div className="progress-bar">
-          <div
-            className="progress-fill"
-            style={{ width: `${loaderProgress}%` }}
-          />
+        <div className="loader-copy">
+          <span className="loader-kicker">Tushar Tikia</span>
+          <h2 className="loader-text">{loadingSteps[step]}</h2>
+          <p className="loader-subtext">
+            Preparing a cleaner, sharper portfolio experience.
+          </p>
         </div>
 
-        <p className="progress-text">{loaderProgress}%</p>
-
-        <style>{`
-          .spin-slow { animation: spin 8s linear infinite; }
-          @keyframes spin {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-          }
-        `}</style>
+        <div className="loader-step-list" aria-label="Loading status">
+          {loadingSteps.map((item, index) => (
+            <span
+              key={item}
+              className={`loader-step ${index <= step ? "active" : ""}`}
+            >
+              {item}
+            </span>
+          ))}
+        </div>
       </div>
     </div>
   );

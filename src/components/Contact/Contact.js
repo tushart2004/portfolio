@@ -1,4 +1,5 @@
 import { useState } from "react";
+import emailjs from "@emailjs/browser";
 import { CheckCircle, Github, Linkedin, Mail, Send } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -10,6 +11,7 @@ const Contact = () => {
   });
   const [isLoading, setIsLoading] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
 
   const handleChange = (e) => {
@@ -44,11 +46,37 @@ const Contact = () => {
     setErrorMessage("");
 
     try {
-      await new Promise((resolve) => setTimeout(resolve, 1200));
+      const serviceId = process.env.REACT_APP_EMAILJS_SERVICE_ID;
+      const templateId = process.env.REACT_APP_EMAILJS_TEMPLATE_ID;
+      const publicKey = process.env.REACT_APP_EMAILJS_PUBLIC_KEY;
+      const receiverEmail = process.env.REACT_APP_CONTACT_EMAIL || "tushartikia@gmail.com";
+
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        message: formData.message,
+        to_email: receiverEmail,
+        reply_to: formData.email,
+      };
+
+      if (serviceId && templateId && publicKey) {
+        await emailjs.send(serviceId, templateId, templateParams, publicKey);
+        setSuccessMessage("Message sent successfully. I will get back to you soon.");
+      } else {
+        const subject = encodeURIComponent(`Portfolio message from ${formData.name}`);
+        const body = encodeURIComponent(
+          `Name: ${formData.name}\nEmail: ${formData.email}\n\n${formData.message}`
+        );
+        window.location.href = `mailto:${receiverEmail}?subject=${subject}&body=${body}`;
+        setSuccessMessage("Your email app opened with the message ready to send.");
+      }
 
       setIsSuccess(true);
       setFormData({ name: "", email: "", message: "" });
-      setTimeout(() => setIsSuccess(false), 5000);
+      setTimeout(() => {
+        setIsSuccess(false);
+        setSuccessMessage("");
+      }, 5000);
     } catch (error) {
       console.error("Email send failed:", error);
       setErrorMessage("Failed to send message. Please try again or contact me directly.");
@@ -125,7 +153,7 @@ const Contact = () => {
               </motion.a>
 
               <motion.a
-                href="https://www.linkedin.com/in/tushar-tikia-b050701b2/"
+                href="https://www.linkedin.com/in/tushar-tikia/"
                 className="contact-link"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -156,7 +184,7 @@ const Contact = () => {
                 transition={{ type: "spring", bounce: 0.35 }}
               >
                 <CheckCircle size={20} />
-                Message sent successfully. I will get back to you soon.
+                {successMessage}
               </motion.div>
             )}
 

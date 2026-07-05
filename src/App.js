@@ -13,7 +13,6 @@ import Footer from "./components/Footer/Footer";
 function App() {
   const [darkMode, setDarkMode] = useState(true);
   const [showLoader, setShowLoader] = useState(true);
-  const [showIntro, setShowIntro] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
   const [scrolled, setScrolled] = useState(false);
 
@@ -55,8 +54,6 @@ function App() {
         darkMode={darkMode}
         onFinish={() => {
           setShowLoader(false);
-          setShowIntro(true);
-          setTimeout(() => setShowIntro(false), 3000);
         }}
       />
     );
@@ -64,15 +61,6 @@ function App() {
 
   return (
     <div className={`portfolio-wrapper ${darkMode ? "dark" : "light"}`}>
-      {showIntro && (
-        <div className="intro-overlay">
-          <div className="intro-content">
-            <h1 className="intro-title">Welcome</h1>
-            <p className="intro-subtitle">To My Portfolio</p>
-          </div>
-        </div>
-      )}
-
       <Navbar
         navItems={navItems}
         activeSection={activeSection}
