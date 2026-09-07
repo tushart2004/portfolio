@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { ArrowRight, ChevronDown, Download, MapPin, Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
-import heroImage from "../../Assets/images/hero1.png";
+import heroImage from "../../Assets/images/hero1.jpg";
 import Resume from "./Tushar_Resume.pdf";
 
 const Hero = ({ scrollToSection }) => {
