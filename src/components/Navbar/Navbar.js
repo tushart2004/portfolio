@@ -76,6 +76,8 @@ const Navbar = ({
             ))}
           </div>
 
+          {/* Right side: Theme toggle + Mobile button */}
+          <div className="nav-right">
           {/* Theme toggle */}
           <motion.button
             onClick={() => setDarkMode(!darkMode)}
@@ -143,6 +145,7 @@ const Navbar = ({
               )}
             </AnimatePresence>
           </motion.button>
+          </div>
         </div>
       </div>
 

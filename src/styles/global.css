@@ -728,6 +728,13 @@
     transform: scale(1.1);
 }
 
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-shrink: 0;
+}
+
 .theme-toggle {
     background: rgba(74, 222, 128, 0.2);
     border: none;
