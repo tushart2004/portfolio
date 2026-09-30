@@ -1,10 +1,50 @@
 import React from "react";
-import { ArrowRight, ExternalLink, Github, ShoppingCart, Star } from "lucide-react";
+import { ArrowRight, ExternalLink, Github, ShoppingCart, Star, Brain, Blocks } from "lucide-react";
 import { motion } from "framer-motion";
 import Image1 from "../../Assets/images/Project1.jpg";
+import Image2 from "../../Assets/images/Project2.jpg";
+import Image3 from "../../Assets/images/Project3.jpg";
 
 const Projects = () => {
+  const projectIcons = {
+    ShoppingCart: ShoppingCart,
+    Brain: Brain,
+    Blocks: Blocks,
+  };
+
   const projects = [
+    {
+      title: "AI Interview Preparation Platform",
+      description:
+        "A full-stack AI interview platform with 15 modules, 40+ backend files, 25+ REST API endpoints, and 7 MongoDB collections. Features 6 specialized AI agents with an AI orchestrator for question generation, answer evaluation, feedback, and adaptive difficulty. Includes JWT auth, RBAC, speech recognition, webcam emotion tracking, coding assessments, and analytics.",
+      tech: ["React 18", "Redux Toolkit", "Node.js", "MongoDB", "Express.js", "Multi-Agent AI"],
+      image: Image2,
+      link: "#",
+      github: "https://github.com/tushart2004",
+      featured: true,
+      icon: "Brain",
+      stats: {
+        scope: "Full Stack",
+        focus: "AI / ML",
+        stack: "MERN + AI",
+      },
+    },
+    {
+      title: "AI Software Architect",
+      description:
+        "An AI-powered platform converting natural language ideas into software requirements, system architecture, database schemas, and API designs. Features an interactive architecture designer with components, connections, and system diagrams. Includes AI architecture reviews covering scalability, security, reliability, maintainability, and cost analysis.",
+      tech: ["React", "Node.js", "AI Integration", "System Design", "REST APIs"],
+      image: Image3,
+      link: "#",
+      github: "https://github.com/tushart2004",
+      featured: true,
+      icon: "Blocks",
+      stats: {
+        scope: "Full Stack",
+        focus: "AI / Design",
+        stack: "MERN + AI",
+      },
+    },
     {
       title: "Grocer Guru E-Commerce Platform",
       description:
@@ -13,7 +53,8 @@ const Projects = () => {
       image: Image1,
       link: "https://full-stack-ecommerce-gkwx.vercel.app/",
       github: "https://github.com/tushart2004",
-      featured: true,
+      featured: false,
+      icon: "ShoppingCart",
       stats: {
         scope: "Full Stack",
         focus: "Commerce",
@@ -132,7 +173,7 @@ const Projects = () => {
               <div className="project-content">
                 <div className="project-heading-row">
                   <span className="project-icon" aria-hidden="true">
-                    <ShoppingCart size={20} />
+                    {(() => { const IconComp = projectIcons[project.icon]; return IconComp ? <IconComp size={20} /> : null; })()}
                   </span>
                   <h3 className="project-title">{project.title}</h3>
                 </div>
