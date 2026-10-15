@@ -19,8 +19,8 @@ const Projects = () => {
         "A full-stack AI interview platform with 15 modules, 40+ backend files, 25+ REST API endpoints, and 7 MongoDB collections. Features 6 specialized AI agents with an AI orchestrator for question generation, answer evaluation, feedback, and adaptive difficulty. Includes JWT auth, RBAC, speech recognition, webcam emotion tracking, coding assessments, and analytics.",
       tech: ["React 18", "Redux Toolkit", "Node.js", "MongoDB", "Express.js", "Multi-Agent AI"],
       image: Image2,
-      link: "#",
-      github: "https://github.com/tushart2004",
+      link: "https://ai-interview-platform-bci4.vercel.app/",
+      github: "https://github.com/tushart2004/AI-Interview-Platform",
       featured: true,
       icon: "Brain",
       stats: {
@@ -35,8 +35,8 @@ const Projects = () => {
         "An AI-powered platform converting natural language ideas into software requirements, system architecture, database schemas, and API designs. Features an interactive architecture designer with components, connections, and system diagrams. Includes AI architecture reviews covering scalability, security, reliability, maintainability, and cost analysis.",
       tech: ["React", "Node.js", "AI Integration", "System Design", "REST APIs"],
       image: Image3,
-      link: "#",
-      github: "https://github.com/tushart2004",
+      link: "https://client-lilac-zeta-95.vercel.app/",
+      github: "https://github.com/tushart2004/AI-Software-Architect",
       featured: true,
       icon: "Blocks",
       stats: {
