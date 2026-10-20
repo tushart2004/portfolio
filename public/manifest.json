@@ -9,12 +9,12 @@
     },
     {
       "src": "hero1.jpg",
-      "type": "image/jpeg ",
+      "type": "image/jpg ",
       "sizes": "192x192"
     },
     {
       "src": "hero1.jpg",
-      "type": "image/jpeg ",
+      "type": "image/jpg ",
       "sizes": "512x512"
     }
   ],
